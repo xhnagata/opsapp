@@ -1,0 +1,2 @@
+/containers/sql-server/*
+!/containers/sql-server/.keep
