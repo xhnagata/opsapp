@@ -1,0 +1,14 @@
+default: &default
+  adapter: sqlserver
+  username: <%= ENV['DATABASE_USERNAME'] || 'sa' %>
+  password: <%= ENV['DATABASE_PASSWORD'] || 'P@ssw0rd' %>
+  host: <%= ENV['DATABASE_HOST'] || '127.0.0.1' %>
+  port: 1433
+  database: opsapp
+
+development:
+  <<: *default
+staging:
+  <<: *default
+production:
+  <<: *default

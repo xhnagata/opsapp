@@ -1,3 +1,5 @@
 /.rbenv-gemset
 /containers/sql-server/*
 !/containers/sql-server/.keep
+/tmp/puma/*
+!/tmp/puma/.keep
