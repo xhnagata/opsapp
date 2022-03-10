@@ -8,4 +8,4 @@ COPY ["Gemfile", "Gemfile.lock", "./"]
 RUN bundle install -j2 && \
     bundle clean --force
 COPY ./ ./
-CMD bundle exec puma -C config/puma.rb
+CMD ./startup.sh

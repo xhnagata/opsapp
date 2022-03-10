@@ -13,7 +13,7 @@ services:
       MSSQL_COLLATION: Japanese_CI_AS
     volumes:
       - "./containers/sql-server:/var/opt/mssql"
-  opsapp:
+  app:
     build: .
     depends_on:
       - sql-server
@@ -22,6 +22,8 @@ services:
     links:
       - sql-server:sql-server
     environment:
+      SLEEPING_TIME: 15
+      RACK_ENV: development
       DATABASE_HOST: sql-server
       DATABASE_USERNAME: sa
       DATABASE_PASSWORD: P@ssw0rd
