@@ -54,7 +54,7 @@ post '/health/toggle' do
   end
 
   status 201
-  '201 ok'
+  '201 Created'
 rescue
   status 500
   '500 Internal Server Error'
