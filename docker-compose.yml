@@ -13,3 +13,15 @@ services:
       MSSQL_COLLATION: Japanese_CI_AS
     volumes:
       - "./containers/sql-server:/var/opt/mssql"
+  opsapp:
+    build: .
+    depends_on:
+      - sql-server
+    ports:
+      - 3000:3000
+    links:
+      - sql-server:sql-server
+    environment:
+      DATABASE_HOST: sql-server
+      DATABASE_USERNAME: sa
+      DATABASE_PASSWORD: P@ssw0rd
