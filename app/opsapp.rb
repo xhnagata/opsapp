@@ -3,6 +3,16 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './app/models/health'
 
+before do
+  now = Time.now
+  # おおよそ10リクエストに1回の頻度で、標準エラー出力を行う
+  if now.nsec.to_s.delete('0')[-1] == '1'
+    STDERR.puts "STDERR #{now}"
+  end
+rescue => e
+  STDERR.puts "STDERR RESCUE #{e.message} #{Time.now}"
+end
+
 get '/health' do
   content_type 'text/plain'
   '200 OK'
